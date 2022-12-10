@@ -33,6 +33,10 @@ Your goal is to use the course knowledge to optimize the ChatBot program from a 
 3. Compile: `cmake .. && make`
 4. Run it: `./membot`.
 
+## Using WSL 2 on W10
+Run XLaunch. Check the box "No access control"
+`export DISPLAY=172.25.80.1:0.0` where 172.25.80.1 is the WSL ipv4 address 
+`./membot`
 ## Project Task Details
 
 Currently, the program crashes when you close the window. There is a small bug hidden somewhere, which has something to do with improper memory management. So your first warm-up task will be to find this bug and remove it. This should familiarize you with the code and set you up for the rest of the upcoming tasks. Have fun debugging!

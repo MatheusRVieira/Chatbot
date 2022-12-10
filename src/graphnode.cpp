@@ -11,7 +11,7 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+ //   delete _chatBot;  // That was causing a bug, because _chatBot was been deleting twice. 
 
     ////
     //// EOF STUDENT CODE
