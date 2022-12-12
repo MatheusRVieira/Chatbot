@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatbot.cpp
-iostream
--
-random
--
-algorithm
--
-ctime
--
-chatlogic.h
-/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatlogic.h
-graphnode.h
-/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/graphnode.h
-graphedge.h
-/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/graphedge.h
-chatbot.h
-/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatbot.h
-
 /mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatbot.h
 wx/bitmap.h
 -
@@ -35,6 +17,30 @@ wx/wx.h
 -
 memory
 -
+
+/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatlogic.cpp
+fstream
+-
+sstream
+-
+iostream
+-
+vector
+-
+iterator
+-
+tuple
+-
+algorithm
+-
+graphedge.h
+/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/graphedge.h
+graphnode.h
+/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/graphnode.h
+chatbot.h
+/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatbot.h
+chatlogic.h
+/mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatlogic.h
 
 /mnt/c/Ubuntu/CppND-Memory-Management-Chatbot/src/chatlogic.h
 vector
