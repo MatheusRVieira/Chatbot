@@ -21,7 +21,7 @@ ChatBot::ChatBot()
 ChatBot::ChatBot(std::string filename)
 {
     std::cout << "ChatBot Constructor" << std::endl;
-    
+
     // invalidate data handles
     _chatLogic = nullptr;
     _rootNode = nullptr;
@@ -35,60 +35,63 @@ ChatBot::~ChatBot()
     std::cout << "ChatBot Destructor" << std::endl;
 
     // deallocate heap memory
-    if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
+    if (_image != NULL) // Attention: wxWidgets used NULL and not nullptr
     {
         delete _image;
         _image = NULL;
     }
 }
 
-//// STUDENT CODE
-////
 // Copy constructor
-ChatBot::ChatBot(const ChatBot &source){
+ChatBot::ChatBot(const ChatBot &source)
+{
     _image = new wxBitmap(*source._image);
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     _chatLogic = source._chatLogic;
-	_chatLogic->SetChatbotHandle(this);
-    std::cout <<"ChatBot copy constructor" << std::endl;
+    _chatLogic->SetChatbotHandle(this);
+    std::cout << "ChatBot copy constructor" << std::endl;
 }
 
 // Copy assignment operator
-ChatBot &ChatBot::operator=(const ChatBot &source){
+ChatBot &ChatBot::operator=(const ChatBot &source)
+{
     if (this == &source)
-      return *this;
+        return *this;
     delete _image;
     _image = new wxBitmap(*source._image);
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     _chatLogic = source._chatLogic;
-	_chatLogic->SetChatbotHandle(this);
-    std::cout <<"ChatBot copy assignment operator" << std::endl;
-    
+    _chatLogic->SetChatbotHandle(this);
+    std::cout << "ChatBot copy assignment operator" << std::endl;
+
     return *this;
 }
 
 // Move constructor
-ChatBot::ChatBot(ChatBot &&source){
+ChatBot::ChatBot(ChatBot &&source)
+{
     _image = source._image;
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     source._rootNode = nullptr;
     _chatLogic = source._chatLogic;
     source._chatLogic = nullptr;
-    
+
     _chatLogic->SetChatbotHandle(this);
-	source._image = NULL;
-    std::cout <<"ChatBot move constructor" << std::endl;
+    source._image = NULL;
+    std::cout << "ChatBot move constructor" << std::endl;
 }
 
 // Move assignment operator
-ChatBot &ChatBot::operator=(ChatBot &&source){
+ChatBot &ChatBot::operator=(ChatBot &&source)
+{
     if (this == &source)
-      return *this;
-    if (_image != NULL) {
-    delete _image;
+        return *this;
+    if (_image != NULL)
+    {
+        delete _image;
     }
     _image = source._image;
     _currentNode = source._currentNode;
@@ -98,13 +101,11 @@ ChatBot &ChatBot::operator=(ChatBot &&source){
     source._chatLogic = nullptr;
 
     _chatLogic->SetChatbotHandle(this);
-    std::cout <<"ChatBot move assignment operator" << std::endl;
-	source._image = NULL;
-	
+    std::cout << "ChatBot move assignment operator" << std::endl;
+    source._image = NULL;
+
     return *this;
 }
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
@@ -127,7 +128,8 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
     if (levDists.size() > 0)
     {
         // sort in ascending order of Levenshtein distance (best fit is at the top)
-        std::sort(levDists.begin(), levDists.end(), [](const EdgeDist &a, const EdgeDist &b) { return a.second < b.second; });
+        std::sort(levDists.begin(), levDists.end(), [](const EdgeDist &a, const EdgeDist &b)
+                  { return a.second < b.second; });
         newNode = levDists.at(0).first->GetChildNode(); // after sorting the best edge is at first position
     }
     else
